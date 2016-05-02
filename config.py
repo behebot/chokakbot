@@ -15,8 +15,10 @@ Hey, what's up? Chokak?
 That's my name - ChoKakBot!
 
 Currently I support following commands:
-/time - show current time in Chatik."
-/time_debug - show current time in Chatik, and some debug info."
+/time - show current time in Chatik.
+/time_debug - show current time in Chatik, and some debug info.
+/giphy - show random animated gif
+/giphy {text} - show animated gif based on {text}
 
 Have fun!
 """
