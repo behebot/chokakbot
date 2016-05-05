@@ -30,7 +30,7 @@ class TestTimeOfDay(unittest.TestCase):
     def test_get_hour_for_tz(self):
         with freeze_time(self.test_time):
             self.assertEqual(5, self.tod.get_hour_for_tz('US/Pacific'))
-            self.assertEqual(16, self.tod.get_hour_for_tz('Europe/Moscow'))
+            self.assertEqual(15, self.tod.get_hour_for_tz('Europe/Moscow'))
             self.assertEqual(20, self.tod.get_hour_for_tz('Asia/Taipei'))
 
     def test_get_tz_for_user(self):
@@ -51,8 +51,8 @@ class TestTimeOfDay(unittest.TestCase):
         with freeze_time(self.test_time):
             self.assertEquals(self.tod.get_hour_for_user('behemot'), 5)
             self.assertEquals(self.tod.get_hour_for_user('oleg'), 5)
-            self.assertEquals(self.tod.get_hour_for_user('marsek'), 16)
-            self.assertEquals(self.tod.get_hour_for_user('fedor'), 16)
+            self.assertEquals(self.tod.get_hour_for_user('marsek'), 15)
+            self.assertEquals(self.tod.get_hour_for_user('fedor'), 15)
             self.assertEquals(self.tod.get_hour_for_user('pelicano'), 20)
 
     def test_get_tod_for_tz(self):
@@ -71,14 +71,14 @@ class TestTimeOfDay(unittest.TestCase):
             self.assertEquals(self.tod.u2tod['pelicano'], 'evening')
 
             self.assertEquals(self.tod.tod_cost['morning'], 2)
-            self.assertEquals(self.tod.tod_cost['day'], 2)
+            self.assertEquals(self.tod.tod_cost['day'], 4)
             self.assertEquals(self.tod.tod_cost['evening'], 3)
             self.assertEquals(self.tod.tod_cost['night'], 0)
 
     # TODO: Write test for debug mode.
     def test_get_time_of_day(self):
         with freeze_time(self.test_time):
-            self.assertEquals(self.tod.get_time_of_day(), 'evening')
+            self.assertEquals(self.tod.get_time_of_day(), 'day')
 
 
 if __name__ == '__main__':
